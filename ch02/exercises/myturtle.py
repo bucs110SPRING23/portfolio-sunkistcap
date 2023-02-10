@@ -27,6 +27,5 @@ eTurtle.left(90)
 eTurtle.fd(50)
 eTurtle.left(90)
 eTurtle.fd(50)
-
 #exit program
 window.exitonclick()
