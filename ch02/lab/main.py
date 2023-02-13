@@ -8,8 +8,12 @@ turtle1.shape("turtle")
 turtle2= turtle.Turtle()
 turtle2.shape("turtle")
 screen=turtle.Screen()
+turtle1.penup()
+turtle2.penup()
 turtle1.goto(-100,20)
 turtle2.goto(-100,-20)
+turtle1.pendown()
+turtle2.pendown()
 
 #Race 1
 ranMove=random.randint(1,100)
