@@ -1,25 +1,11 @@
-#bool - boolean type
-#True/false
-# - caps are important
-# True,1, "Hello"
-print(type(True))
-print(bool(1),bool(-1), bool ("Hello"))
-#example 2
-x=5
-y=10
-print(x==y)
-print(x>y)
-print(x<y)
-print(x>=y)
-print(x<=y)
-#exmaple 3
-print (True and True)
-print(True and False)
-print(False and True)
-print(False and True)
-print(False and False)
-
-print (True or True)
-print (True or False)
-print (False or True)
-print (False or False)
+# user etners upper limit
+limit=(int(input("please enter an upper limit: ")))
+#range to check through all numbers up to limit
+for i in range(limit+1):
+    print("number: ", i)
+    if (i%3==0 and i%5==0):
+        print ("fizzbuzz")
+    elif (i%3==0):
+        print("fizz")
+    elif (i%5==0):
+        print("buzz")
