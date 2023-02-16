@@ -3,18 +3,17 @@ import random
 #random number generator
 ranNum=random.randint(1,10)
 flag=False
-#user input nunmber
-userNum=int(input("Please guess the RNG number from 1 - 10 inclusive: "))
-#if statement loop
+print("the number is: ",ranNum)
+#for range statement loop
 for i in range(3):
+    userNum=int(input("Please guess the RNG number from 1 - 10 inclusive: "))
     if (userNum==ranNum):
-        print(f"Correct!", "you got the right number in "+[i]+" tries",
-        sep="\n")
+        print("Correct!\nyou got the right number in ",(i+1),"out of 3 guesses ")
         flag=True
         break
     if(userNum<ranNum):
-        print(f"Too low,"+[i]+" more guesses")
+        print("Too low,",(i+1),"out of 3 tries")
     if(userNum>ranNum):
-        print(f"Too high,"+[i]+" more tries")
+        print("Too high,",(i+1),"out of 3 tries")
 if(flag is False):
-    print(f"The number was "+[ranNum]+" Better luck next time!")
+    print("The number was ",ranNum," better luck next time!")
