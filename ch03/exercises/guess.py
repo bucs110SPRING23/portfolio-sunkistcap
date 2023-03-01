@@ -3,7 +3,7 @@ import random
 #random number generator
 ranNum=random.randint(1,10)
 flag=False
-print("the number is: ",ranNum)
+#print("the number is: ",ranNum)
 #for range statement loop
 for i in range(3):
     userNum=int(input("Please guess the RNG number from 1 - 10 inclusive: "))

@@ -2,7 +2,8 @@
 import random
 import math
 import turtle
-#Part A
+import pygame
+#Part A setup
 turtle1= turtle.Turtle()
 turtle1.shape("turtle")
 turtle2= turtle.Turtle()
@@ -18,9 +19,8 @@ turtle2.pendown()
 #Race 1
 turtle1.color("red")
 turtle2.color("blue")
-ranMove=random.randint(1,100)
-turtle1.forward(ranMove)
-turtle2.forward(ranMove)
+turtle1.forward(random.randint(1,100))
+turtle2.forward(random.randint(1,100))
 turtle1.up()
 turtle2.up()
 turtle1.goto(-100,20)
@@ -30,37 +30,44 @@ turtle1.color("purple")
 turtle2.color("green")
 turtle1.pendown()
 turtle2.pendown()
-for i in range(1):
-    turt1Dis=random.randrange(1,10)
-    turt2Dis=random.randrange(1,10)
-    turtle1.fd(turt1Dis)
-    turtle2.fd(turt2Dis)
-    turtle1.goto(-100,20)
-    turtle2.goto(-100,-20)
+for i in range(10):
+    turtle2.fd(random.randrange(1,10))
+    turtle1.fd(random.randrange(1,10))
+turtle1.up()
+turtle2.up()
+turtle1.goto(-100,20)
+turtle2.goto(-100,-20)
+#exit
 screen.exitonclick()
+
 #Part B
-# import modules
-import pygame
-import math
 #initialize
 pygame.init()
 window = pygame.display.set_mode()
-points=[
+xpos=750
+ypos=500
+num_sides=[3,4,6,20,100,360]
+side_length=250
+#creating shapes
+for i in range(6):
+    points=[]
+    n = num_sides[i]
+    for j in range(n):
+        iAngle=360/n
+        radians= math.radians(iAngle*j+30)
+        x= xpos+side_length*math.cos(radians)
+        y= ypos+side_length*math.sin(radians)
+        points.append([x, y])
+    #draw and reset
+    pygame.draw.polygon(window,"red",points)
+    pygame.display.flip()
+    pygame.time.wait(500)
+    window.fill((0,0,0))
+    pygame.display.flip()
+#exit pygame
+pygame.quit()
 
-]
-xpos=0
-ypos=0
-# making of shapes
-num_sides=int(input("Please enter the number of sides for the shape: "))
-side_length=int(input("please enter the length of each side: "))
-for i in range(num_sides):
-    iAngle=360/num_sides
-    radians= math.radians(iAngle*i)
-    x= xpos+side_length*math.cos(radians)
-    y= ypos+side_length*math.sin(radians)
-    points.append([x,y])
-    pygame.draw.polygon()
-    pygame.display.flip()
-    pygame.time.wait(1500)
-    window.fill("white")
-    pygame.display.flip()
+
+
+# we had talked in class on 2/27 about this assignment coming in late
+# I'm just writing this as you had told me to remind you.
