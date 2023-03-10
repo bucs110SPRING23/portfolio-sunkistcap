@@ -1,26 +1,39 @@
-import turtle #1. import modules
+#import modules
+import pygame
 import random
-
+import math
 #Part A
-window = turtle.Screen() # 2.  Create a screen
-window.bgcolor('lightblue')
-
-michelangelo = turtle.Turtle() # 3.  Create two turtles
-leonardo = turtle.Turtle()
-michelangelo.color('orange')
-leonardo.color('blue')
-michelangelo.shape('turtle')
-leonardo.shape('turtle')
-
-michelangelo.up() # 4. Pick up the pen so we don’t get lines
-leonardo.up()
-michelangelo.goto(-100,20)
-leonardo.goto(-100,-20)
-
-## 5. Your PART A code goes here
-
-
-# PART B - complete part B here
-
-
-window.exitonclick()
+#initalize screen
+pygame.init()
+screen=pygame.display.set_mode()
+size= screen.get_size()
+width=size[0]/2
+height=size[1]/2
+radius= min(width,height)
+screen.fill("powderblue")
+#circle and lines
+pygame.draw.circle(screen,"purple",[(width),(height)],radius)
+pygame.draw.circle(screen,"black",[(width),(height)],radius,5)
+pygame.draw.line(screen,"black",[(width+height),(height)],[width-height,height],5)
+pygame.draw.line(screen,"black",[width,height//radius],[height,width*radius],5)
+pygame.display.flip()
+pygame.time.wait(1500)
+#Part B 
+#for loop of dart throws
+for i in range(10):
+    #dart throw location
+    dTX=random.randint(0,width*2)
+    dTY=random.randint(0,height*2)
+    distance= math.hypot((width-dTX), (height-dTY)) #the distance formula
+    inCircle = (distance <= radius) #screen width
+    #if statment for dart color
+    #red = miss
+    #green = hit
+    if (inCircle==True):
+        color="green"
+    else:
+        color="red"
+    pygame.draw.circle(screen,color,[(dTX),(dTY)],5)
+    pygame.display.flip()
+    pygame.time.wait(1500)
+pygame.quit()
