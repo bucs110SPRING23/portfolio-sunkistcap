@@ -1,4 +1,9 @@
-def percentage_to_letter(score=0):
+def percentage_to_letter(score):
+    """
+    This is a function that returns a letter grade based on a percentage
+    args: percent (int)
+    return: letter (str)
+    """
     if (score<60):
         return("F")
     elif(score>=60 and score <70):
@@ -9,17 +14,24 @@ def percentage_to_letter(score=0):
         return("B")
     else:
         return("A")
-    
-def is_passing(letter=None):
-    if letter in["C","B","A"]:
-        return(True)
-    else:
-        return(False)
 
-score= int(input("please enter your score: "))
-Letter=percentage_to_letter(score)
-#check if correct return
-print(Letter)
-passing= is_passing(Letter)
-#check if correct return
-print(passing)
+def is_passing(letter):
+    """
+    This is a function that returns a boolean based on the letter grade
+    args: letter (str)
+    retturn: passing (boolean)
+    """
+    return letter in "ABC"
+
+def main():
+    score= int(input("please enter your score: "))
+    letter=percentage_to_letter(score)
+    #displays letter grade
+    print(f"you got a, '{letter}' as your letter grade.")
+    #check if passing
+    if is_passing(letter):
+        print("that means you passed!")
+    else:
+        print("unfortunately that means you did not pass")
+
+main()
