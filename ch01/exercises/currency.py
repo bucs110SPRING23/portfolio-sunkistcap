@@ -1,0 +1,5 @@
+rate= float(input("What is the current exchange rate from Euros to US Dollars: "))
+amount= float(input("what is the amount of currency you wish to exchange: "))
+total= int(rate*amount)
+result=str(total-3)
+print("the total amoutn of Euros in US dollars is: $"+result)
